@@ -1,0 +1,25 @@
+.car {
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    margin: auto;
+
+
+
+    .track {
+
+        width: 300px;
+        height: 300px;
+        border: 35px solid blue;
+        position: absolute;
+        top: 500px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 50%;
+        }

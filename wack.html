@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Snake</title>
+    <style>
+      #game-board {
+        width: 500px;
+        height: 500px;
+        border: 1px solid black;
+        position: relative;
+      }
+
+      .snake {
+        width: 20px;
+        height: 20px;
+        background-color: green;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .food {
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Snake</h1>
+    <div id="game-board"></div>
+    <script>
+      const gameBoard = document.getElementById("game-board");
+      const snake = document.createElement("div");
+      const food = document.createElement("div");
+      let snakeX = 0;
+      let snakeY = 0;
+      let foodX = 0;
+      let foodY = 0;
+      let direction = "right";
+      let snakeLength = 1;
+      let intervalId = null;
+
+      function drawSnake() {
+        snake.style.left = snakeX + "px";
+        snake.style.top = snakeY + "px";
+        gameBoard.appendChild(snake);
+      }
+
+      function drawFood() {
+        food.style.left = foodX + "px";
+        food.style.top = foodY + "px";
+        gameBoard.appendChild(food);
+      }
+
+      function moveSnake() {
+        if (direction === "right") {
+          snakeX += 20;
+        } else if (direction === "left") {
+          snakeX -= 20;
+        } else if (direction === "up") {
+          snakeY -= 20;
+        } else if (direction === "down") {
+          snakeY += 20;
+        }
+
+        if (snakeX < 0 || snakeX >= 500 || snakeY < 0 || snakeY >= 500) {
+          endGame();
+          return;
+        }
+
+        if (snakeX === foodX && snakeY === foodY) {
+          snakeLength++;
+          generateFood();
+        }
+
+        if (snakeLength === 1) {
+          drawSnake();
+        } else {
+          const tail = document.querySelectorAll(".snake")[snakeLength - 2];
+          tail.style.left = snakeX - 20 + "px";
+          tail.style.top = snakeY - 20 + "px";
+          gameBoard.appendChild(tail);
+        }
+
+        const snakeHead = document.querySelectorAll(".snake")[snakeLength - 1];
+
+        const snakeBody = document.querySelectorAll(".snake");
+        for (let i = 0; i < snakeBody.length - 1; i++) {
+          if (snakeHead.style.left === snakeBody[i].style.left && snakeHead.style.top === snakeBody[i].style.top) {
+            endGame();
+            return;
+          }
+        }
+
+        snakeHead.style.left = snakeX + "px";
+        snakeHead.style.top = snakeY + "px";
+      }
+
+      function generateFood() {
+        foodX = Math.floor(Math.random() * 25) * 20;
+        foodY = Math.floor(Math.random() * 25) * 20;
+        food.style.left = foodX + "px";
+        food.style.top = foodY + "px";
+      }
+
+      function change

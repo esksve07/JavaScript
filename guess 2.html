@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // Generate a random number between 1 and 100
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        // Prompt the user to guess a number
+        let guess = prompt("I'm thinking of a number between 1 and 100. What is it?");
+
+        // Keep track of the number of guesses
+        let numberOfGuesses = 1;
+
+        // Keep prompting the user until they guess the correct number
+        while (guess != randomNumber) {
+        if (guess > randomNumber) {
+            guess = prompt("Too high! Guess again.");
+        } else {
+            guess = prompt("Too low! Guess again.");
+        }
+        numberOfGuesses++;
+        }
+
+        // Congratulate the user and display the number of guesses
+        alert("Congratulations! You guessed the number in " + numberOfGuesses + " guesses.");
+
+
+
+    </script>
+
+
+
+</body>
+</html>

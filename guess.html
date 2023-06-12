@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Guess the number game -->
+
+    <h1>Guess the number</h1>
+    <h2 id="timer">Tid: 0 sec</h2>
+    <h2 id="antall_gjett">Antall gjett: 0</h2>
+    
+    <input type="text" id="gjette_felt">
+    <button id="gjette_knapp">Gjett</button>
+    <button id="restart_knapp">Restart</button>
+    <p id="tilbakemelding"></p>
+
+    <script>
+        var gjette_felt = document.querySelector('#gjette_felt')
+        var knapp = document.querySelector('#gjette_knapp')
+        var knapp_restart = document.querySelector('#restart_knapp')
+        var tilbakemelding = document.querySelector('#tilbakemelding')
+        var EL_timer = document.querySelector('#timer')
+        var teller = 0
+        var tilfeldig_tall = Math.floor(Math.random() * 101);
+
+        console.log(tilfeldig_tall)
+
+        function gjett(){
+
+            gjettet_tall = gjette_felt.value
+
+            if (gjettet_tall == tilfeldig_tall){
+                tilbakemelding.innerHTML = 'Du gjettet riktig'
+            }
+            else if (gjettet_tall > tilfeldig_tall){
+                tilbakemelding.innerHTML = 'Tallet er for høyt'
+            }
+            else if (gjettet_tall < tilfeldig_tall){
+                tilbakemelding.innerHTML = 'Tallet er for lavt'
+            }
+        }
+
+        function restart(){
+
+            tilfeldig_tall = Math.floor(Math.random() * 101);
+            teller = 0
+            EL_timer.innerHTML = "Tid: " + teller + " sec"
+            console.log("restarted")
+        }  
+        // definere funksjonen 
+        function myTimer(){
+            console.log('timer: '+ teller)
+            teller++
+            EL_timer.innerHTML = "Tid: " + teller + " sec"
+        }
+ 
+        setInterval(myTimer, 1000) // kjører funksjonen myTimer hvert sekund, (1000ms)
+
+        knapp.addEventListener('click', gjett)
+        knapp_restart.addEventListener('click', restart)
+ 
+    
+ 
+       
+       
+
+        knapp.addEventListener('click', gjett)
+        knapp_restart.addEventListener('click', restart)
+        
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+h1 {
+    color: white;
+    font-size: 2em;
+
+}
+
+h2 {
+
+    color: white;
+}
+
+h3 {
+
+    color: white;
+}
+
+
+body {
+
+background-color: black;
+
+}
+
+.top {
+
+    
+    
+}
+
+
+
+.track_container {
+display: flex;
+scale: 1;
+width: 300px;
+height: 300px;
+border: 35px solid blue;
+position: absolute;
+top: 800px;
+bottom: 0;
+left: 0;
+right: 0;
+margin-top: 30%;
+margin-left: 50%;
+border-radius: 50%;
+}
+
+
+.car {
+border-radius: 50%;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+overflow: hidden;
+margin: auto;
+/* -webkit-animation: circle 5s linear infinite; */
+animation: circle 5s linear infinite;
+
+}
+
+.F1_car {
+
+animation: rotation 5s infinite linear;
+
+}
+.F1_car2 {
+
+animation: rotation 5s infinite linear;
+
+}
+
+
+.F1_track {
+scale: 1.5;
+margin: auto
+
+}
+
+.F1_clicker {
+
+z-index: 100;
+
+}
+
+
+
+.Audio_controll {
+
+color: black;
+
+}
+
+@-webkit-keyframes circle{
+
+    0%{
+        transform: rotate(0deg)translate(-170px)rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg)translate(-170px)rotate(-360deg);
+    }
+
+
+
+
+}
+
+
+@keyframes rotation {
+
+    from {
+        transform: rotate(-90deg);
+
+    } to {
+        transform: rotate(270deg);
+    }
+
+
+}
+
+
+
+
+.upgrades_panel {
+
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 300px;
+    height: 300px;
+
+
+}
+
+.engine {
+    width: 150px;
+    height: 150px;
+    background-image: url(engine.jpg);
+    background-size: cover;
+    line-height: 20px;
+
+}
+
+.teamprincipal {
+    background-color: chartreuse;
+    height: 150px;
+    width: 150px;
+    background-image: url('principal.jpg');
+    background-size: cover;
+    line-height: 20px;
+}
+
+
+
+.aero {
+
+    height: 150px;
+    width: 150px;
+    background-image: url(wing.jpg);
+    background-size: cover;
+    line-height: 20px;
+
+}
+
+.tires {
+
+    height: 150px;
+    width: 150px;
+    background-image: url(slicks.png);
+    background-size: cover;
+    line-height: 20px;
+
+}
+
+.upgrades1 {
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.upgrades2 {
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+
+.text1 {
+
+    color: red;
+    margin-top: 0;
+}
+
+
+.top {
+width: auto;
+height: 50%;
+flex-direction: column;
+
+}
+
+#clicker_img {
+    z-index: 999;
+}
